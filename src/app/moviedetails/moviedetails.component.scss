@@ -1,0 +1,14 @@
+@import '../../styles.scss';
+:host {
+   font-family: $fontMon;
+   letter-spacing: 1px;
+}
+.genres li span {
+   background-color: $bgTransparent;
+   border-radius: 4px;
+   padding: .2rem .5rem;
+   font-weight: 500;
+   font-family: $fontTaj;
+   font-size: .85rem;
+   text-transform: uppercase;
+}

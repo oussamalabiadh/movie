@@ -1,0 +1,43 @@
+@import '../../styles.scss';
+nav {
+   font-family: $fontMon;
+}
+.nav-link , .navbar-brand {
+   color: $fontColor;
+}
+.navbar-brand {
+   font-family: $fontTaj;
+   font-weight: 900;
+   font-size: 2rem;
+}
+.nav-link.active {
+color: $lightBgColor;
+font-weight: 700;
+}
+nav .btn-logout {
+   cursor: pointer;
+   position: relative;
+}
+nav .btn-logout:hover {
+   color: $bgTransparent;
+}
+nav .social-links a {
+   transition: $transition;
+}
+nav .social-links a:hover {
+   color: $bgTransparent !important;
+}
+nav .btn-logout:hover::before {
+   content: attr(data-log);
+   position: absolute;
+   right: 5%;
+   top: 150%;
+   background-color: $bgColor;
+   font-weight: 600;
+   padding: .1rem .3rem;
+   border-radius: 10px;
+   text-transform: uppercase;
+}
+nav .search-icon {
+   cursor: pointer;
+}

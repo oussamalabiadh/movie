@@ -1,0 +1,109 @@
+<header>
+ <div class="container-fluid">
+  <div class="carsor">
+    <h2 class="slide-title h1">{{'Our Latest movies'|uppercase}}</h2>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let data of allData">
+        <ng-template carouselSlide [id]="data.id">
+          <img
+            [src]="prefixImg + (data.poster_path ?? data.profile_path)"
+            [alt]="data.title ?? data.name"
+            [title]="data.title ?? data.name"
+          />
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+ </div>
+</header>
+
+<div class="container py-4">
+  <ng-template #show>
+    <!-- ------------------ Movie ------------------ -->
+    <div class="row gy-3">
+      <div class="col-md-4 hstack">
+        <div class="main-title">
+          <h2>
+            Trending <br />
+            Movies <br />
+            To Watch Now
+          </h2>
+          <p class="text-muted lead">Most Watched Movies By Days</p>
+        </div>
+      </div>
+      <div *ngFor="let movie of trendingMovies" class="col-md-2">
+        <div
+          [routerLink]="['/details', movie.id, movie.media_type]"
+          class="card h-100 shadow-lg bg-transparent"
+        >
+          <img
+            [src]="prefixImg + movie.poster_path"
+            onerror="this.src='./assets/images/img-not.jpg'"
+            class="w-100 h-100 card-img-top"
+            alt="movie photo"
+          />
+          <h3 class="h6 text-center mt-2 card-title">{{ movie.title }}</h3>
+        </div>
+      </div>
+    </div>
+    <!-- ------------------ Tv ------------------ -->
+    <div class="row gy-3 my-5">
+      <div class="col-md-4 hstack">
+        <div class="main-title">
+          <h2>
+            Trending <br />
+            Tv <br />
+            To Watch Now
+          </h2>
+          <p class="text-muted lead">Most Watched Movies By Days</p>
+        </div>
+      </div>
+      <div *ngFor="let movie of trendingTv" class="col-md-2">
+        <div
+          [routerLink]="['/details', movie.id, movie.media_type]"
+          class="card h-100 shadow-lg bg-transparent"
+        >
+          <img
+            [src]="prefixImg + movie.poster_path"
+            onerror="this.src='./assets/images/img-not.jpg'"
+            class="w-100 card-img-top"
+            alt="movie photo"
+          />
+          <h3 class="h6 text-center mt-2">{{ movie.name }}</h3>
+        </div>
+      </div>
+    </div>
+    <!-- ------------------ Person ------------------ -->
+    <div class="row gy-3">
+      <div class="col-md-4 hstack">
+        <div class="main-title">
+          <h2>
+            Trending <br />
+            Person <br />
+            To Watch Now
+          </h2>
+          <p class="text-muted lead">Most Watched Movies By Days</p>
+        </div>
+      </div>
+      <div *ngFor="let movie of trendingPerson" class="col-md-2">
+        <div
+          [routerLink]="['/details', movie.id, movie.media_type]"
+          class="card h-100 shadow-lg bg-transparent"
+        >
+          <img
+            [src]="prefixImg + movie.profile_path"
+            onerror="this.src='./assets/images/img-not.jpg'"
+            class="w-100 card-img-top h-100"
+            alt="movie photo"
+          />
+          <h3 class="h6 text-center mt-2">{{ movie.name }}</h3>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- ------------------ Loading Animation ------------------ -->
+  <span *ngIf="isLoding; else show"
+    ><i class="fas fa-spinner fa-spin fa-2xl icon-loading"></i
+  ></span>
+</div>

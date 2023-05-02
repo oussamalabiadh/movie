@@ -1,0 +1,65 @@
+<div class="container py-4">
+  <ng-template #show>
+    <nav
+      *ngIf="!isLoding2"
+      aria-label="Page navigation example"
+      class="d-flex justify-content-center mb-3 pagination-nav"
+    >
+      <ul class="pagination pagination-sm">
+        <li class="page-item">
+          <a
+            (click)="pervPage()"
+            class="page-link bg-transparent"
+            aria-label="Previous"
+          >
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li *ngFor="let num of PagNumArray" class="page-item">
+          <a
+            #link
+            (click)="changePageUrl(link.innerHTML)"
+            class="page-link bg-transparent"
+            [routerLink]="['/people', num]"
+            routerLinkActive="active"
+            >{{ num }}</a
+          >
+        </li>
+        <li class="page-item">
+          <a
+            (click)="nextPage()"
+            class="page-link bg-transparent"
+            aria-label="Next"
+          >
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <ng-container *ngIf="!isLoding2">
+      <div class="row gy-3">
+        <div *ngFor="let movie of trendingPerson" class="col-md-3">
+          <div
+            [routerLink]="['/details', movie.id, 'person']"
+            class="card h-100 shadow-lg bg-transparent"
+          >
+            <img
+              [src]="prefixImg + movie.profile_path"
+              onerror="this.src='./assets/images/img-not.jpg'"
+              class="w-100 card-img-top h-100"
+              alt="movie photo"
+            />
+            <h3 class="h6 text-center mt-2">{{ movie.name }}</h3>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+  <!-- ------------------ Loading Animation ------------------ -->
+  <span *ngIf="isLoding; else show"
+    ><i class="fas fa-spinner fa-spin fa-2xl icon-loading"></i
+  ></span>
+  <span *ngIf="isLoding2"
+    ><i class="fas fa-spinner fa-spin fa-2xl icon-loading"></i
+  ></span>
+</div>

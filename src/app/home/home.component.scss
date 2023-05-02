@@ -1,0 +1,48 @@
+@import "../../styles.scss";
+.main-title {
+  font-family: $fontMon;
+  position: relative;
+}
+.main-title::after,
+.main-title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: $borderHeight;
+  background-color: $borderColor;
+}
+.main-title::after {
+  top: -20%;
+  width: 25%;
+}
+.main-title::before {
+  top: 110%;
+  width: 100%;
+}
+header {
+  background-image: url("../../assets/images/home.webp");
+  min-height: calc(100vh - 74px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+header img {
+  cursor: pointer;
+}
+.slide-title {
+  color: #fff;
+}
+@supports (-webkit-text-fill-color: transparent) {
+  .slide-title {
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    -moz-text-stroke: 1px #fff;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(to top, #131722 50%, #24baef 50%);
+    background-size: 20px 20px;
+  }
+}

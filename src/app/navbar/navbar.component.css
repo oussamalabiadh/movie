@@ -1,0 +1,173 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap");
+body {
+  font-family: "Tajawal", sans-serif;
+  background-color: #131722;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #949cb0;
+  box-shadow: 0 0 10px inset rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #131722;
+  border-radius: 50px;
+}
+
+::-moz-selection {
+  background-color: rgba(36, 186, 239, 0.6);
+  color: #fff;
+}
+
+::selection {
+  background-color: rgba(36, 186, 239, 0.6);
+  color: #fff;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+          appearance: textfield;
+}
+
+.input-data label {
+  transition: 0.3s all;
+  pointer-events: none;
+}
+
+.input-data input {
+  font-size: 14px;
+  color: #131722;
+  font-weight: 600;
+}
+
+.input-data input:not(:-moz-placeholder-shown) + label {
+  top: 19% !important;
+  font-size: 12px;
+  font-weight: 600;
+  color: #777;
+  letter-spacing: 1px;
+}
+
+.input-data input:not(:-ms-input-placeholder) + label {
+  top: 19% !important;
+  font-size: 12px;
+  font-weight: 600;
+  color: #777;
+  letter-spacing: 1px;
+}
+
+.input-data input:focus + label,
+.input-data input:not(:placeholder-shown) + label {
+  top: 19% !important;
+  font-size: 12px;
+  font-weight: 600;
+  color: #777;
+  letter-spacing: 1px;
+}
+
+.card {
+  cursor: pointer;
+  filter: grayscale(0.4);
+  transition: all 0.4s linear;
+}
+
+.card img {
+  height: 100%;
+}
+
+.card:hover {
+  transform: scale(1.08);
+  filter: grayscale(0);
+}
+
+.page-link {
+  cursor: pointer;
+  color: #fff;
+}
+
+.page-link.active {
+  background-color: #24baef !important;
+}
+
+.font-taj {
+  font-family: "Tajawal", sans-serif;
+}
+
+.font-mon {
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.icon-loading {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+nav {
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.nav-link, .navbar-brand {
+  color: #fff;
+}
+
+.navbar-brand {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.nav-link.active {
+  color: #24baef;
+  font-weight: 700;
+}
+
+nav .btn-logout {
+  cursor: pointer;
+  position: relative;
+}
+
+nav .btn-logout:hover {
+  color: rgba(36, 186, 239, 0.6);
+}
+
+nav .social-links a {
+  transition: all 0.4s linear;
+}
+
+nav .social-links a:hover {
+  color: rgba(36, 186, 239, 0.6) !important;
+}
+
+nav .btn-logout:hover::before {
+  content: attr(data-log);
+  position: absolute;
+  right: 5%;
+  top: 150%;
+  background-color: #131722;
+  font-weight: 600;
+  padding: 0.1rem 0.3rem;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+nav .search-icon {
+  cursor: pointer;
+}/*# sourceMappingURL=navbar.component.css.map */

@@ -1,0 +1,85 @@
+<section class="login-form w-75 py-3">
+  <h1 class="display-3 fw-bold mb-4">LogIn</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="subLogin(loginForm)">
+    <p class="alert alert-danger" *ngIf="msgLogin">{{ msgLogin }}</p>
+    <div class="row gy-3">
+      <div class="col-12">
+        <div class="input-data position-relative text-dark">
+          <input
+            id="email"
+            type="email"
+            class="form-control"
+            autocomplete="off"
+            placeholder=" "
+            formControlName="email"
+          />
+          <label
+            for="email"
+            class="position-absolute top-50 start-0 translate-middle-y ms-3"
+            >E-mail</label
+          >
+        </div>
+        <div
+          class="msg text-danger small"
+          *ngIf="
+            loginForm.get('email')?.errors && loginForm.get('email')?.touched
+          "
+        >
+          <p *ngIf="loginForm.get('email')?.getError('required')">
+            email Required
+          </p>
+          <p *ngIf="loginForm.get('email')?.getError('email')">
+            E-mail Format Invalid
+          </p>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="input-data position-relative text-dark">
+          <input
+            id="password"
+            type="password"
+            class="form-control"
+            autocomplete="off"
+            placeholder=" "
+            formControlName="password"
+          />
+          <label
+            for="password"
+            class="position-absolute top-50 start-0 translate-middle-y ms-3"
+            >Password</label
+          >
+        </div>
+        <div
+          class="msg text-danger small"
+          *ngIf="
+            loginForm.get('password')?.errors &&
+            loginForm.get('password')?.touched
+          "
+        >
+          <p *ngIf="loginForm.get('password')?.getError('required')">
+            password Required
+          </p>
+          <p *ngIf="loginForm.get('password')?.getError('minlength')">
+            MinLength 2
+          </p>
+          <p *ngIf="loginForm.get('password')?.getError('maxlength')">
+            MaxLength 12
+          </p>
+          <p *ngIf="loginForm.get('password')?.getError('pattern')">
+            Pattern Start (A-Z and any Number Or Char [1-16])
+          </p>
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      [class]="!loading?'btn btn-outline-secondary fw-semibold mt-3':'btn btn-outline-danger fw-semibold mt-3'"
+      [disabled]="loginForm.invalid"
+    >
+      <span *ngIf="!loading"> Registration</span>
+      <span *ngIf="loading"
+        >Waiting  <i class="fas fa-spinner fa-spin"></i
+      ></span>
+    </button>
+  </form>
+</section>

@@ -1,0 +1,154 @@
+<nav class="navbar navbar-expand-xl">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/home">Noxe</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ng-container *ngIf="isLogin">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/home"
+              routerLinkActive="active"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              [routerLink]="['/movies', pageNumberMo]"
+              routerLinkActive="active"
+              >Movies</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              [routerLink]="['/tv', pageNumberTv]"
+              routerLinkActive="active"
+              >Tv Show</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              [routerLink]="['/people', pageNumberPe]"
+              routerLinkActive="active"
+              >People</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/about"
+              routerLinkActive="active"
+              >About</a
+            >
+          </li>
+          <!-- <li class="nav-item">
+            <a
+              class="nav-link"
+              aria-current="page"
+              routerLink="/networks"
+              routerLinkActive="active"
+              >NetWorks</a
+            >
+          </li> -->
+        </ng-container>
+      </ul>
+      <div *ngIf="isLogin" class="input-search ms-auto me-3" role="search">
+        <span
+          class="nav-link"
+          routerLinkActive="active"
+          [routerLink]="['/search', pageNumberSe]"
+          routerLinkActive="active"
+          ><i class="fas fa-search fa-xl search-icon"></i
+        ></span>
+      </div>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li *ngIf="isLogin" class="nav-item hstack social-links">
+          <a
+            href="https://www.linkedin.com/in/oussama-labiadh-3150771a4/"
+            target="_blank"
+            class="text-reset mx-1"
+            aria-label="link social"
+          >
+            <i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://github.com/oussamalabiadh"
+            target="_blank"
+            class="text-reset mx-1"
+            aria-label="link social"
+          >
+            <i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.facebook.com/oussama.labiadh.58/"
+            target="_blank"
+            class="text-reset mx-1"
+            aria-label="link social"
+          >
+            <i class="fab fa-facebook"></i
+          ></a>
+          <a
+            href="https://wa.me/+21621532424"
+            target="_blank"
+            class="text-reset mx-1"
+            aria-label="link social"
+          >
+            <i class="fab fa-whatsapp"></i
+          ></a>
+        </li>
+
+        <li *ngIf="!isLogin" class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/login"
+            routerLinkActive="active"
+            >Login</a
+          >
+        </li>
+
+        <li *ngIf="!isLogin" class="nav-item">
+          <a
+            class="nav-link"
+            aria-current="page"
+            routerLink="/register"
+            routerLinkActive="active"
+            >Register</a
+          >
+        </li>
+
+        <li *ngIf="isLogin" class="nav-item">
+          <span *ngIf="isLogin" class="mx-2 text-info">{{
+            userInfo.name
+          }}</span>
+          <span
+            data-log="LogOut"
+            (click)="logOut()"
+            class="btn-logout"
+            aria-label="Logout"
+            ><i class="fa-solid fa-right-from-bracket fa-xl"></i
+          ></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

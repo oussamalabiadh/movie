@@ -1,0 +1,52 @@
+<div class="container py-4">
+
+<div class="row">
+  <div class="col-md-4">
+    <img
+      [src]="prefixImg + (moviesData.poster_path ?? moviesData.profile_path)"
+       onerror="this.src='./assets/images/img-not.jpg'"
+      class="w-100"
+      alt="moves photo"
+    />
+  </div>
+  <div class="col-md-8">
+    <div class="item">
+      <h1 class="card-title title">
+        {{ moviesData.title ?? moviesData.name }}
+      </h1>
+      <p class="card-subtitle text-muted lead">{{ moviesData.tagline }}</p>
+      <ul class="genres list-inline ms-3 mt-2">
+        <ng-container *ngIf="moviesData.genres">
+          <li *ngFor="let genre of moviesData.genres" class="list-inline-item">
+            <span>{{ genre.name }}</span>
+          </li>
+        </ng-container>
+        <li *ngIf="moviesData.known_for_department" class="list-inline-item">
+          <span>{{ moviesData.known_for_department }}</span>
+        </li>
+      </ul>
+      <ul class="list-unstyled mt-5">
+        <li class="mb-3 small" *ngIf="moviesData.vote_average">
+          Voute: {{ moviesData.vote_average.toString() | slice: 0:3 }}
+        </li>
+        <li class="mb-3 small" *ngIf="moviesData.vote_count">
+          Voute Counte: {{ moviesData.vote_count }}
+        </li>
+        <li class="mb-3 small"  *ngIf="moviesData.popularity">Popularity: {{ moviesData.popularity }}</li>
+        <li class="mb-3 small" *ngIf="moviesData.release_date">
+          Release Date: {{ moviesData.release_date }}
+        </li>
+        <li class="mb-3 small" *ngIf="moviesData.birthday">
+          Birth Day: {{ moviesData.birthday }}
+        </li>
+        <li class="mb-3 small" *ngIf="moviesData.deathday">
+          Death Day: {{ moviesData.deathday }}
+        </li>
+      </ul>
+      <p class="text-muted lead mt-5">
+        {{ moviesData.overview ?? moviesData.biography }}
+      </p>
+    </div>
+  </div>
+</div>
+</div>
